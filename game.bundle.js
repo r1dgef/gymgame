@@ -54835,8 +54835,8 @@ function createEnvironments(scene){
  function lightBar(group,x,y,z,w,color){const m=new THREE.MeshStandardMaterial({color,emissive:color,emissiveIntensity:2});return box(group,x,y,z,w,.045,.06,m);}
  // Basement: exposed plumbing, cracked plaster, crates, a bare bulb and old mats.
  const poor=groups[0];
- box(poor,1.3,1.5,-3.7,2.8,2.9,.08,concrete);
- for(let i=0;i<8;i++){const crack=box(poor,.2+i*.15,1+i*.12,-3.63,.025,.24,.02,black);crack.rotation.z=i%2?.6:-.4;}
+ // Small worn mortar marks lie on the brick wall instead of a freestanding panel.
+ for(let i=0;i<5;i++){const crack=box(poor,1.2+i*.1,.9+i*.09,-3.82,.012,.13,.008,rust);crack.rotation.z=i%2?.4:-.3;}
  for(const x of [-3.6,2.1]){cylinder(poor,x,1.8,-3.45,.07,3.6,rust);const pipe=cylinder(poor,x+.35,3.48,-3.45,.07,.7,rust);pipe.rotation.z=Math.PI/2;}
  for(let i=0;i<2;i++){box(poor,-2.3+i*.5,.3,-2.7,.55,.55,.55,wood);for(let j=0;j<3;j++)box(poor,-2.3+i*.5,.15+j*.16,-2.4,.52,.035,.035,rust);}
  for(let i=0;i<3;i++)box(poor,-.7+i*.7,.025,.1,.67,.025,2.8,mat(i%2?'#393f33':'#434437'));

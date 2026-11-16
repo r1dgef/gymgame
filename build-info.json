@@ -1,15 +1,15 @@
 {
   "version": "1.0.0",
-  "builtAt": "2026-11-16T20:43:26.670Z",
+  "builtAt": "2026-11-16T21:17:18.661Z",
   "hashes": {
     "index.html": "3a60a9ced0a3733e789d97f5d163683cfaf0b2164b3736eb2e1030b27c6ca0ea",
     "style.css": "15b87545d8ec118db59f445f537f93ce14aadedf07f207a876fbb27166a03622",
-    "compact.css": "ee83f8aeebf1a7d83232bf6dca9cfc37bc0917604f55574ead8b03e3e753a345",
+    "compact.css": "3c091296efc431e004b62d2248c0d1931891c2d203db771cbf0ecdbd0b0f7cd0",
     "tournament.css": "8ab124e13aa6834cf68c2f1b8f739f1d442d8c9b724ce43f4dfb32a278252e73",
     "wardrobe.css": "26ae484ed2094b54ea34e755e48a88df01054e8a674e8e453ce395ea0db6dafb",
     "character.css": "a939281574a7d94a68302ab67ec94f37c6295916a88837644ecd9e324d97f123",
     "release.css": "6b179214e52c959cde1503d1dc990b937ae8f6d2d5beeca40c2aeec7d5bd7cf2",
-    "game.bundle.js": "1d3b0be06dc120c03bbb0056c491bd5e08b913657a041953266dcd387425dc2b",
+    "game.bundle.js": "69dc6e4542354cf1933f09b6996c54666832c83be40b58da6db51c0fe0fb5999",
     "vendor/vk-bridge.js": "d764e733a24ef8efecba22e9ae35d1c402fe877820d4b7139ba3e4dd8f6387b3",
     "vendor/LICENSE-vk-bridge.txt": "15752ef20d62ef8f9b56deb04f8afbcb05d63823215ef2a2325da0890c940ab9",
     "vendor/LICENSE-three.txt": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
