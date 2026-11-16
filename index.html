@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101714"><title>ПАМП — путь из подвала</title><link rel="stylesheet" href="style.css"></head>
+<body data-view="train">
+<div class="app">
+  <header><a class="brand" href="./"><span class="brand-icon">Ⅱ</span> ПАМП<span class="edition">ПУТЬ ИЗ ПОДВАЛА</span></a><div class="wallet"><span class="coin">●</span><strong id="coins">0</strong><span class="muted">монет</span></div><button id="sound" class="icon-button" aria-label="Включить звук" title="Звук">♪</button></header>
+  <main>
+    <section class="game">
+      <div class="scene" id="scene"><canvas id="canvas" aria-label="Анимированный персонаж выполняет жим лёжа"></canvas>
+        <div class="scene-top"><span id="gym-location" class="location"><i></i> ПОДВАЛ · ЗАЛ 01</span><span class="build">ИГРОВОЙ ПРОТОТИП</span></div>
+        <div class="rank-display"><span class="eyebrow">ТВОЙ ПУТЬ НАЧИНАЕТСЯ ЗДЕСЬ</span><h1 id="rank">Дрыщ</h1><p id="rank-description">Большие перемены начинаются с пустого грифа.</p></div>
+        <div class="scene-note"><span class="live-dot"></span> ЖИВАЯ 3D-СЦЕНА <span>Перетаскивай, чтобы повернуть</span></div>
+        <div id="feedback" role="status" aria-live="polite"></div>
+        <div class="scene-bottom"><div><span class="eyebrow" id="exercise-name">ЖИМ ЛЁЖА</span><b id="rep-count">0 <small>повторов</small></b></div><div class="combo"><span class="eyebrow">ПАМП</span><b id="combo">×1.0</b><div class="mini-track"><i id="pump-fill"></i></div></div></div>
+      </div>
+      <div class="training-panel">
+        <div class="exercise-tabs" aria-label="Упражнения"><button id="bench-tab" class="selected" aria-pressed="true">Жим лёжа <small>ГРУДЬ</small></button><button id="curls-tab" aria-pressed="false">Гантели <small>РУКИ</small></button><button id="squats-tab" aria-pressed="false">Присед <small>НОГИ</small></button><button id="deadlift-tab" aria-pressed="false">Тяга <small>СПИНА</small></button></div>
+        <div class="set-info"><span id="set-progress">Подход · 5 повторов</span><button id="stop-set" hidden>Завершить подход</button></div>
+        <div id="tournament-live" class="tournament-live" hidden><span>КУБОК ПОДВАЛА</span><strong id="tournament-score">0 / 1000</strong></div>
+        <div class="weight-row"><div><span class="eyebrow">РАБОЧИЙ ВЕС</span><div class="weight-control"><button id="less" aria-label="Уменьшить вес">−</button><strong><span id="weight">20</span><small> кг</small></strong><button id="more" aria-label="Увеличить вес">+</button></div></div><div class="difficulty"><span id="difficulty">КОМФОРТНЫЙ</span><small id="weight-hint">Рекомендация: до 25 кг</small></div></div>
+        <div class="timing-label"><span id="phase">Готов к первому подходу</span><span>ПОЙМАЙ ЗЕЛЁНУЮ ЗОНУ</span></div>
+        <div class="timing" id="timing"><div class="sweet-spot"></div><i id="cursor"></i></div>
+        <button id="train" class="train-button"><span id="train-label">НАЧАТЬ ПОДХОД</span><span class="key">ПРОБЕЛ ↵</span></button>
+        <p class="hint" id="hint">Нажимай в зелёной зоне, чтобы помогать герою поднимать вес.</p>
+      </div>
+    </section>
+    <aside>
+      <section class="card journey-card"><div class="section-title"><h2>Путь к чемпионству</h2><span id="gym-count">1 / 3</span></div><div id="gym-name" class="gym-badge">Подвал</div><p id="gym-next"></p><button id="open-gyms" class="text-button">Залы и цели <span>↗</span></button><button id="how-to" class="text-button">Как играть <span>?</span></button></section>
+      <section class="card ad-card"><h2>Бонусы тренера</h2><p>Реклама — только по твоему желанию.</p><button id="ad-boost">▶ Протеин: ×2 опыта на 5 минут</button><button id="ad-gift">▶ Подарок: 30 монет</button><small id="ad-status" role="status">Проверяем подключение к VK…</small><p id="platform-status"></p></section>
+      <section class="card ad-card" id="offline-card" hidden><h2>Пока тебя не было</h2><div id="offline-amount" class="offline-amount"></div><p>Доход зала за время отсутствия, максимум за 8 часов.</p><button id="offline-claim">Забрать монеты</button><button id="offline-double">▶ Забрать вдвое больше</button></section>
+      <section class="card tournament-card"><div class="section-title"><h2>Кубок подвала</h2><span>НА ТОЧНОСТЬ</span></div><div class="tournament-best"><b id="tournament-best">0</b><span>личный рекорд / 1000</span></div><p>10 повторов · 20 кг · без бустов.<br>Чем ближе к центру зелёной зоны, тем больше очков.</p><div class="medals"><span>Бронза <b>400</b></span><span>Серебро <b>650</b></span><span>Золото <b>850</b></span></div><button id="enter-tournament">Личная тренировка турнира</button><button id="enter-ranked" disabled>Рейтинговая попытка</button><button id="open-ranking" disabled>Таблица лидеров</button><small id="ranked-status">Онлайн-рейтинг требует подключённого сервера VK.</small><small id="tournament-record">Результаты сохраняются на этом устройстве</small></section>
+      <section class="card"><div class="section-title"><h2>Развитие мышц</h2><span>РАСТЁТ ТО, ЧТО КАЧАЕШЬ</span></div><div id="muscle-stats"></div><p id="weak-muscle"></p><button id="train-weak" class="text-button" hidden>Подтянуть слабую группу <span>↗</span></button></section>
+      <section class="card progression"><div class="section-title"><h2>Твоя трансформация</h2><span id="level">01 / 10</span></div><div class="next-rank"><span id="current-rank">Дрыщ</span><span>→</span><strong id="next-rank">Слабак</strong></div><div class="progress-track"><i id="xp-fill"></i></div><div class="progress-caption"><span id="xp-text">0 / 100 опыта</span><span id="xp-percent">0%</span></div><p>С каждым повтором тело становится сильнее. Следующий этап уже близко.</p><button class="text-button" id="show-stages">Все этапы трансформации <span>↗</span></button></section>
+      <section class="card"><div class="section-title"><h2>Сегодня в зале</h2><span class="tag">ТВОИ РЕКОРДЫ</span></div><div class="stats"><div><b id="best-weight">—</b><span>лучший жим, кг</span></div><div><b id="perfects">0</b><span>идеальных повторов</span></div></div><div class="goal"><span>Первый шаг</span><strong id="goal">0 / 10 повторов</strong></div><div class="progress-track small"><i id="goal-fill"></i></div></section>
+      <section class="card records-card"><div class="section-title"><h2>Рабочие рекорды</h2><span>ЛИЧНЫЕ</span></div><div id="exercise-records"></div></section>
+      <section class="card boost"><div class="boost-icon">🥤</div><div><span class="eyebrow">БАР ТРЕНЕРА</span><h2>Банановый памп</h2><p>×2 к опыту на 60 секунд</p></div><button id="boost">Выпить · 80 <span class="coin">●</span></button><small id="boost-note">За игровые монеты. Реклама пока не подключена.</small></section>
+      <section class="card quest-card"><div class="section-title"><h2>Задания тренера</h2><span>БОНУСЫ</span></div><div id="quests"></div></section>
+      <section class="card wardrobe-card"><div class="section-title"><h2>Твой стиль</h2><span>ГАРДЕРОБ</span></div><div class="outfit-summary"><span id="outfit-swatch" class="outfit-swatch"></span><div><b id="outfit-name">Первый абонемент</b><small id="outfit-owned">1 / 5 комплектов</small></div></div><p>Комплекты за заработанные монеты. Внешность меняется, сила остаётся твоей.</p><button id="open-wardrobe" class="text-button">Открыть гардероб <span>↗</span></button><button id="show-body" class="text-button body-button">Сравнить формы в 3D <span>↗</span></button></section>
+      <div class="save-note"><span>◉</span><span id="save-status">Прогресс сохраняется на этом устройстве</span><button id="open-saves">Перенести</button></div>
+    </aside>
+  </main>
+  <nav class="mobile-nav" aria-label="Разделы игры"><button id="view-train" aria-pressed="true"><span>Ⅱ</span>Тренировка</button><button id="view-progress" aria-pressed="false"><span>↗</span>Прогресс</button><button id="view-rewards" aria-pressed="false"><span>☆</span>Бонусы</button></nav>
+  <footer><span>КАЖДЫЙ ПОВТОР ИМЕЕТ ЗНАЧЕНИЕ.</span><button id="about">О прототипе</button></footer>
+</div>
+<dialog id="dialog"><button id="close-dialog" class="close" aria-label="Закрыть">×</button><div id="dialog-content"></div></dialog>
+<input type="file" id="save-file" accept=".json,application/json" hidden>
+<link rel="stylesheet" href="compact.css">
+<link rel="stylesheet" href="tournament.css">
+<link rel="stylesheet" href="wardrobe.css">
+<link rel="stylesheet" href="character.css">
+<link rel="stylesheet" href="release.css">
+<script src="vendor/vk-bridge.js" defer></script>
+<script src="game.bundle.js" defer></script>
+</body></html>
